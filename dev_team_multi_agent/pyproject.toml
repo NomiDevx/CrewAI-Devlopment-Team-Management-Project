@@ -1,0 +1,32 @@
+[project]
+name = "dev_team_multi_agent"
+version = "0.1.0"
+description = "Dev_team_multi_agent using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai==1.12.2"
+]
+
+[project.scripts]
+dev_team_multi_agent = "dev_team_multi_agent.main:run"
+run_crew = "dev_team_multi_agent.main:run"
+train = "dev_team_multi_agent.main:train"
+replay = "dev_team_multi_agent.main:replay"
+test = "dev_team_multi_agent.main:test"
+run_with_trigger = "dev_team_multi_agent.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
+
+[tool.uv]
+constraint-dependencies = [
+    "lancedb>=0.17.0; sys_platform != 'win32'"
+]
+required-environments = [
+    "sys_platform == 'win32' and platform_machine == 'AMD64'"
+]
